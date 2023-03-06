@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "764569608740",
+    "project_id": "login-31742",
+    "storage_bucket": "login-31742.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764569608740:android:e2a39e8cd68fbfaa652eb1",
+        "android_client_info": {
+          "package_name": "com.app.inlogic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764569608740-rko63mce0ikhmssp58ttdvuqd5mc0ov2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.inlogic",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "764569608740-odpiqbmfv96d85ngkcbstpbb7avvvqkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1raw-laViVmPMBrIn08EsBNLYJa22-pY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764569608740-9g2chm9bc3r9j6k35j6cne1bka8269bc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

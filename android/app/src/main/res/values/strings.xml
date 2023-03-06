@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Himenus</string>
+    <string name="facebook_app_id">940878097084976</string>
+    <string name="fb_login_protocol_scheme">fb940878097084976</string>
+    <string name="facebook_client_token">e535d5455e205e305eb2e01b3a2418a2</string>
+</resources>
