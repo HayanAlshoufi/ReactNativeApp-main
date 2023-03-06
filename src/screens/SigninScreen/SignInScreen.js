@@ -27,6 +27,11 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+
+import { TextInput as MaterialTextInput} from 'react-native-paper';
+import { TextInput } from 'react-native-gesture-handler';
+
+
 const SignInScreen = () => {
   
   
@@ -66,7 +71,7 @@ const SignInScreen = () => {
 
   // console.log("User Name: "+name);
   // console.log("Password: "+pass);
-
+  const [passwordVisable,setPasswordVisable]=useState(true);
   return (
     <ScrollView showsHorizontalScrollIndicator={true}>
       <View style={styles.root}>
@@ -78,11 +83,19 @@ const SignInScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Username"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"Username"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
+
+
             />
           )}
           name="username"
@@ -96,12 +109,20 @@ const SignInScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Password"
-              secureTextEntry
+              secureTextEntry={passwordVisable}
+             
+              
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              style={styles.logIn}
+              mode="outlined"
+              label={"Password"}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )}
           name="password"
@@ -133,6 +154,7 @@ const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     padding: hp('2'),
+    
   },
   Logo: {
     width: wp('55%'),
@@ -143,6 +165,12 @@ const styles = StyleSheet.create({
     color: 'red',
     alignSelf: 'flex-start',
     alignItems: 'flex-start',
+  },
+  logIn:{
+    width:wp(90),
+    backgroundColor:'white',
+    color:'red',
+    
   },
 });
 export default SignInScreen;
