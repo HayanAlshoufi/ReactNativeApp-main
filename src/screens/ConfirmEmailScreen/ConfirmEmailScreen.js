@@ -21,6 +21,7 @@ import {useSelector, useDispatch} from 'react-redux';
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+import { TextInput as MaterialTextInput} from 'react-native-paper';
 
 
 const ConfirmEmailScreen = () => {
@@ -80,12 +81,18 @@ const ConfirmEmailScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Enter your confirmation code"
               secureTextEntry
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"Confirmation Code"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )}
           name="confirm"
@@ -140,6 +147,10 @@ const styles = StyleSheet.create({
     marginLeft: wp(1),
     alignSelf: 'flex-start',
     alignItems: 'flex-start',
+  },
+  logIn:{
+    width:wp(90),
+    backgroundColor:'white',    
   },
 });
 export default ConfirmEmailScreen;

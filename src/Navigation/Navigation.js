@@ -3,6 +3,8 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import { CurvedBottomBar } from 'react-native-curved-bottom-bar';
+
 //import {createDrawerNavigator} from '@react-navigation/drawer'
 //import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -222,6 +224,10 @@ const HomeNavigation = () => {
         }}
       />
     </Tab.Navigator>
+
+
+
+
   );
 };
 

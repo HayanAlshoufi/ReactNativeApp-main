@@ -19,6 +19,7 @@ import {useForm, Controller} from 'react-hook-form';
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+import { TextInput as MaterialTextInput} from 'react-native-paper';
 
 
 const NewPasswordScreen = () => {
@@ -50,6 +51,8 @@ const NewPasswordScreen = () => {
     navigation.navigate('SignIn');
   };
 
+  const[passwordVisable,setPasswordVisable]=useState(true);
+
   return (
     <ScrollView showsHorizontalScrollIndicator={true}>
       <View style={styles.root}>
@@ -63,11 +66,17 @@ const NewPasswordScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Enter your confirmation code"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"Confirmation Code"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )}
           name="username"
@@ -83,12 +92,26 @@ const NewPasswordScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Enter your new password"
-              secureTextEntry
+              secureTextEntry={passwordVisable}
+              right={
+                <MaterialTextInput.Icon
+                icon={passwordVisable ? 'eye-off' : 'eye'}                  
+                onPress={() => setPasswordVisable(!passwordVisable)}
+                iconColor='#a80302'
+                
+                />
+              }
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"New Password"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )}
           name="password"
@@ -139,6 +162,11 @@ const styles = StyleSheet.create({
     marginLeft: wp(2),
     alignSelf: 'flex-start',
     alignItems: 'flex-start',
+  },
+  logIn:{
+    width:wp(90),
+    backgroundColor:'white',
+    
   },
 });
 export default NewPasswordScreen;

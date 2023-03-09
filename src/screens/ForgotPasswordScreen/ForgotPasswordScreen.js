@@ -18,6 +18,8 @@ import {useForm, Controller} from 'react-hook-form';
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+import { TextInput as MaterialTextInput} from 'react-native-paper';
+
 
 const ForgotPasswordScreen = () => {
 
@@ -48,9 +50,6 @@ const ForgotPasswordScreen = () => {
     <ScrollView showsHorizontalScrollIndicator={true}>
       <View style={styles.root}>
         <Text style={styles.title}>Reset your password</Text>
-
-
-
         <Controller
           control={control}
           rules={{
@@ -58,12 +57,18 @@ const ForgotPasswordScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Username"
-              secureTextEntry
+              
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"Username"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )}
           name="username"
@@ -109,6 +114,11 @@ const styles = StyleSheet.create({
     marginLeft:hp(1),
     alignSelf:'flex-start',
     alignItems:'flex-start'
+    
+  },
+  logIn:{
+    width:wp(90),
+    backgroundColor:'white',
     
   },
 });

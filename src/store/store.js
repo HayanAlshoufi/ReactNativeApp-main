@@ -4,12 +4,12 @@
 // export const store = createStore(mainReducer);
 
 import {configureStore} from '@reduxjs/toolkit';
-import mainReducer from './reducers';
-
+import cartSlice from './reducers';
+import userSlice from './reducerReg'
 export default configureStore({
   reducer: {
-    cart: mainReducer,
-    user: userReducer
+    cart: cartSlice,
+    user: userSlice
   },
 });
 
@@ -18,8 +18,7 @@ export default configureStore({
 
 import {createStore,combineReducers,applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import userReducer from './reducerReg';
 
-const rootReducer =combineReducers({userReducer,mainReducer});
+const rootReducer =combineReducers({userSlice,cartSlice});
 
 export const store = createStore(rootReducer,applyMiddleware(thunk));

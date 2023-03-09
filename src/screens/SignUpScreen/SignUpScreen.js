@@ -23,6 +23,8 @@ import {setUserName,setUserPass,setEmail,setRePass} from '../../store/reducerReg
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+import { TextInput as MaterialTextInput} from 'react-native-paper';
+
 
 const SignUpScreen = () => {
   const {
@@ -91,6 +93,9 @@ const SignUpScreen = () => {
   // console.log("Password: "+email);
   // console.log("Password: "+rePass);
 
+  const [passwordVisable, setPasswordVisable] = useState(true);
+  const [rePasswordVisable, reSetPasswordVisable] = useState(true);
+
 
   return (
     <ScrollView showsHorizontalScrollIndicator={true}>
@@ -104,11 +109,17 @@ const SignUpScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Username"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"Username"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )}
           name="username"
@@ -122,11 +133,17 @@ const SignUpScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Email"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"Email"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )}
           name="email"
@@ -140,12 +157,25 @@ const SignUpScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Password"
-              secureTextEntry
+              secureTextEntry={passwordVisable}
+              right={
+                <MaterialTextInput.Icon
+                iconColor='#a80302'
+                icon={passwordVisable ? 'eye-off' : 'eye'}                  
+                onPress={() => setPasswordVisable(!passwordVisable)}
+                />
+              }
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"Password"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )} 
           name="password"
@@ -160,12 +190,26 @@ const SignUpScreen = () => {
             required: true,
           }}
           render={({field: {onChange, onBlur, value}}) => (
-            <CustomInput
+            <MaterialTextInput
               placeholder="Repeat Password"
-              secureTextEntry
+              secureTextEntry={rePasswordVisable}
+              right={
+                <MaterialTextInput.Icon
+                icon={rePasswordVisable ? 'eye-off' : 'eye'}                  
+                onPress={() => reSetPasswordVisable(!rePasswordVisable)}
+                iconColor='#a80302'
+                
+                />
+              }
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              mode="outlined"
+              label={"Repeat Password"}
+              style={styles.logIn}
+              placeholderTextColor='gray'
+              outlineColor='gray'
+              theme={{ colors: { primary: '#a80302'}}}
             />
           )}
           name="repeatPassword"
@@ -231,7 +275,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: wp(4),
     marginVertical: wp(4),
-    color:'gray'
+    color:'gray',
   },
 
   SignInLink: {
@@ -245,5 +289,11 @@ const styles = StyleSheet.create({
     alignSelf:'flex-start',
     alignItems:'flex-start'
   },
+  logIn:{
+    width:wp(90),
+    backgroundColor:'white',
+    
+  },
+
 });
 export default SignUpScreen;
