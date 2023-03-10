@@ -11,7 +11,7 @@ import Meal2 from './src/screens/Meal2'
 import  store  from './src/store/store';
 import { Provider as StoreProvider } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen'; // Splash Screen
-
+// import ScanScreen from './src/screens/ScanScreen/ScanScreen'
 // import Test from './src/screens/Test'
 const App = () => {
 
@@ -23,6 +23,7 @@ const App = () => {
       <Main />
       </StoreProvider>
     // <Test/>
+    // <ScanScreen/>
     
   );
 };

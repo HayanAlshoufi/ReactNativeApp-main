@@ -10,10 +10,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // Screen
 import HomeScreen from '../screens/HomeScreen';
-import SearchScreen from '../screens/SearchScreen';
+import ScanScreen from '../screens/ScanScreen';
 import Maps from '../screens/Maps';
 import ProfileScreen from '../screens/ProfileScreen';
 import ShoppingCart from '../screens/ShoppingCart';
@@ -52,7 +53,7 @@ const Tab = createBottomTabNavigator();
 // )
 // const SearchStackScreen = () =>(
 //     <SearchStack.Navigator>
-//         <SearchStack.Screen name='Search' component={SearchScreen}/>
+//         <SearchStack.Screen name='Search' component={ScanScreen}/>
 //     </SearchStack.Navigator>
 // )
 // const NotificationStackScreen = () =>(
@@ -151,13 +152,13 @@ const HomeNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={SearchScreen}
+        name="QR Scan"
+        component={ScanScreen}
         options={{
           tabBarIcon: ({focused, color}) => {
             return (
-              <Ionicons
-                name="search-outline"
+              <MaterialCommunityIcons
+                name="line-scan"
                 size={25}
                 color={color}
                 focused={focused}

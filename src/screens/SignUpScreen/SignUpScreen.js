@@ -28,6 +28,7 @@ import { TextInput as MaterialTextInput} from 'react-native-paper';
 
 const SignUpScreen = () => {
   const {
+    register,
     control,
     handleSubmit,
     formState: {errors},
@@ -95,7 +96,8 @@ const SignUpScreen = () => {
 
   const [passwordVisable, setPasswordVisable] = useState(true);
   const [rePasswordVisable, reSetPasswordVisable] = useState(true);
-
+  
+  
 
   return (
     <ScrollView showsHorizontalScrollIndicator={true}>
@@ -124,7 +126,7 @@ const SignUpScreen = () => {
           )}
           name="username"
         />
-        {errors.username && <Text style={styles.input}>This is required.</Text>}
+        {errors.username && <Text style={styles.input}>Username is required.</Text>}
 
 
         <Controller
@@ -138,6 +140,10 @@ const SignUpScreen = () => {
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              {...register("email", {
+                required: true,
+                pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{1,}$/
+              })}
               mode="outlined"
               label={"Email"}
               style={styles.logIn}
@@ -148,8 +154,12 @@ const SignUpScreen = () => {
           )}
           name="email"
         />
-        {errors.email && <Text style={styles.input}>This is required.</Text>}
-
+        {errors.email && errors.email.type === "required" && (
+            <Text style={styles.input}>Email is required.</Text>
+          )}
+          {errors.email && errors.email.type === "pattern" && (
+            <Text style={styles.input}>Email is not valid.</Text>
+          )}
         <Controller
           control={control}
           rules={{
@@ -180,7 +190,7 @@ const SignUpScreen = () => {
           )} 
           name="password"
         />
-        {errors.password && <Text style={styles.input}>This is required.</Text>}
+        {errors.password && <Text style={styles.input}>Password is required.</Text>}
 
 
         <Controller

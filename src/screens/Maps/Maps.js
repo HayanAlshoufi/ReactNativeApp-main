@@ -59,7 +59,7 @@ const Maps = ({navigation}) => {
       <MapView style={styles.map} 
       zoomControlEnabled={true}
       showsMyLocationButton={true}
-      provider={PROVIDER_GOOGLE}
+      provider={MapView.PROVIDER_GOOGLE}
       showsUserLocation={true}
       initialRegion={{
         latitude: 25.249812,

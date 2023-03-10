@@ -54,7 +54,8 @@
         "Flowers Cake":"كيك زهور",
         "Strawberry Cake":"كيك فراوله",
         "Sicilian Pizza":"بيتزا صقلية",
-        "Honey Cake":"كيك عسل"
+        "Honey Cake":"كيك عسل",
+        "QR Scan":"رمز المسح السريع"
 
 
     },
@@ -85,7 +86,10 @@
     "Chocolate Cake":"كيك شوكولا",
     "Flowers Cake":"كيك زهور",
     "Strawberry Cake":"كيك فراوله",
-    "Honey Cake":"كيك عسل"
+    "Honey Cake":"كيك عسل",
+
+    "QR Scan":"رمز المسح السريع"
+
 
 }
 
